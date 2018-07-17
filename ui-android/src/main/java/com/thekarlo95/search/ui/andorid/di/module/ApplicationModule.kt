@@ -15,7 +15,7 @@ import com.thekarlo95.domain.reposearch.repository.SearchRepository
 import com.thekarlo95.domain.user.repository.UserRepository
 import com.thekarlo95.presentation.core.PresentationLogger
 import com.thekarlo95.search.ui.andorid.core.logging.LoggerImpl
-import com.thekarlo95.search.ui.andorid.di.scope.PerApplication
+import com.thekarlo95.search.ui.andorid.di.scope.ApplicationScope
 import dagger.Module
 import dagger.Provides
 import hr.thekarlo95.api.github.GithubDataStoreImpl
@@ -31,13 +31,13 @@ import io.reactivex.schedulers.Schedulers
 open class ApplicationModule {
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     fun provideGithubService(): GithubService {
         return GithubServiceFactory.create(true)
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     fun provideRepositoryDataStore(
             api: GithubService,
             repositoryMapper: RepositoryApiMapper,
@@ -47,7 +47,7 @@ open class ApplicationModule {
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     fun provideUserDataStore(
             api: GithubService,
             repositoryMapper: RepositoryApiMapper,
@@ -57,7 +57,7 @@ open class ApplicationModule {
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     fun provideSearchRepository(
             dataStore: RepositoryDataStore,
             mapper: SearchStateMapper
@@ -66,7 +66,7 @@ open class ApplicationModule {
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     fun provideRepositoryDetailRepository(
             dataStore: RepositoryDataStore,
             mapper: RepositoryStateMapper
@@ -75,7 +75,7 @@ open class ApplicationModule {
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     fun provideUserRepository(
             dataStore: UserDataStore,
             mapper: UserStateMapper
@@ -84,7 +84,7 @@ open class ApplicationModule {
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     internal fun provideThreadExecutor(): ThreadExecutor {
         return object : ThreadExecutor {
             override val scheduler: Scheduler
@@ -93,7 +93,7 @@ open class ApplicationModule {
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     internal fun providePostExecutionThread(): PostExecutionThread {
         return object : PostExecutionThread {
             override val scheduler: Scheduler
@@ -102,7 +102,7 @@ open class ApplicationModule {
     }
 
     @Provides
-    @PerApplication
+    @ApplicationScope
     internal fun providePresentationLoggerThread(): PresentationLogger {
         return LoggerImpl("presentation")
     }

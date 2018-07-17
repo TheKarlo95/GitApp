@@ -26,4 +26,15 @@
     <string name="title_activity_user">UserActivity</string>
     <string name="label_created_at">Created at</string>
     <string name="label_updated_at">Updated at</string>
+    <string name="show_in_browser">Show in browser</string>
+
+
+    <string name="item_forks">Forks</string>
+    <string name="item_stars">Stars</string>
+    <string name="item_updated">Updated</string>
+    <string-array name="order_array">
+        <item>@string/item_forks</item>
+        <item>@string/item_stars</item>
+        <item>@string/item_updated</item>
+    </string-array>
 </resources>

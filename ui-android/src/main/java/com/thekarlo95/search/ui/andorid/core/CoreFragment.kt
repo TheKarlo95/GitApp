@@ -1,20 +1,22 @@
 package com.thekarlo95.search.ui.andorid.core
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
 import android.widget.Toast
+import com.thekarlo95.presentation.core.presenter.Presenter
 import com.thekarlo95.presentation.core.view.View
-import dagger.android.AndroidInjection
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class CoreActivity : AppCompatActivity(), View {
+abstract class CoreFragment<P : Presenter> : Fragment(), View {
 
     private val compositeDisposable = CompositeDisposable()
 
     protected fun Disposable.addDisposable() = compositeDisposable.add(this)
 
+    abstract var presenter: P
+
     override fun onDestroy() {
+        presenter.destroy()
         compositeDisposable.clear()
         super.onDestroy()
     }
@@ -26,6 +28,6 @@ abstract class CoreActivity : AppCompatActivity(), View {
     }
 
     override fun showError(errorMessage: String) {
-        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
+        Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
     }
 }

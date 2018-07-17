@@ -4,14 +4,16 @@ import com.thekarlo95.domain.repodetail.interactor.GetRepositoryDetailInteractor
 import com.thekarlo95.presentation.repodetail.mapper.RepositoryDetailStateMapper
 import com.thekarlo95.presentation.repodetail.presenter.RepositoryDetailDefaultPresenter
 import com.thekarlo95.presentation.repodetail.presenter.RepositoryDetailPresenter
+import com.thekarlo95.search.ui.andorid.di.scope.FragmentScope
 import dagger.Module
 import dagger.Provides
 
 @Module
-open class RepositoryDetailActivityModule {
+class RepositoryDetailModule {
 
+    @FragmentScope
     @Provides
-    fun provideBrowseBufferoosViewModelFactory(
+    fun providePresenter(
             repositoryDetailInteractor: GetRepositoryDetailInteractor,
             mapper: RepositoryDetailStateMapper
     ): RepositoryDetailPresenter {

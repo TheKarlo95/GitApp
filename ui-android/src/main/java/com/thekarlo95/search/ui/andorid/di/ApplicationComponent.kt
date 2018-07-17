@@ -1,31 +1,22 @@
 package com.thekarlo95.search.ui.andorid.di
 
-import android.app.Application
 import com.thekarlo95.search.ui.andorid.AndroidApplication
-import com.thekarlo95.search.ui.andorid.di.module.ActivityBindingModule
 import com.thekarlo95.search.ui.andorid.di.module.ApplicationModule
-import com.thekarlo95.search.ui.andorid.di.scope.PerApplication
-import dagger.BindsInstance
+import com.thekarlo95.search.ui.andorid.di.scope.ApplicationScope
 import dagger.Component
+import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 
-@PerApplication
-@Component(
-        modules = [
-            ActivityBindingModule::class,
-            ApplicationModule::class,
-            AndroidSupportInjectionModule::class
-        ]
-)
-interface ApplicationComponent {
+@ApplicationScope
+@Component(modules = [
+    AndroidInjectionModule::class,
+    AndroidSupportInjectionModule::class,
+    BindingModule::class,
+    ApplicationModule::class
+])
+interface ApplicationComponent : AndroidInjector<AndroidApplication> {
 
     @Component.Builder
-    interface Builder {
-        @BindsInstance
-        fun application(application: Application): Builder
-
-        fun build(): ApplicationComponent
-    }
-
-    fun inject(app: AndroidApplication)
+    abstract class Builder : AndroidInjector.Builder<AndroidApplication>()
 }

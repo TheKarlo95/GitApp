@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".respositorysearch.RepositorySearchActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_repository_search"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -22,14 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".repositorydetail.RepositoryDetailActivity"
-            android:label="@string/title_activity_repository_detail"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".user.UserActivity"
-            android:label="@string/title_activity_user"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".repositorydetail.RepositoryDetailActivity"-->
+            <!--android:label="@string/title_activity_repository_detail"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
+        <!--<activity-->
+            <!--android:name=".user.UserActivity"-->
+            <!--android:label="@string/title_activity_user"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
     </application>
 
 </manifest>

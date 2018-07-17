@@ -2,6 +2,7 @@ package com.thekarlo95.search.ui.andorid
 
 import android.app.Activity
 import android.app.Application
+import com.thekarlo95.search.ui.andorid.di.ApplicationComponent
 import com.thekarlo95.search.ui.andorid.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -11,18 +12,15 @@ import javax.inject.Inject
 class AndroidApplication : Application(), HasActivityInjector {
 
     @Inject
-    lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+    private val appComponent by lazy {
+        DaggerApplicationComponent.builder().create(this) as ApplicationComponent
+    }
 
     override fun onCreate() {
         super.onCreate()
-        DaggerApplicationComponent
-                .builder()
-                .application(this)
-                .build()
-                .inject(this)
+        appComponent.inject(this)
     }
 
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return activityDispatchingAndroidInjector
-    }
+    override fun activityInjector(): AndroidInjector<Activity> = activityInjector
 }
