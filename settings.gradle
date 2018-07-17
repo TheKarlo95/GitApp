@@ -1,0 +1,5 @@
+include ':api-github'
+include ':data'
+include ':domain'
+include ':presentation'
+include ':ui-android'

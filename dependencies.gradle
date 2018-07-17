@@ -1,0 +1,104 @@
+ext {
+    // implementation
+    daggerVersion = "2.16"
+    kotlinVersion = kotlin_version
+    okHttpVersion = "3.10.0"
+    retrofitVersion = "2.4.0"
+    rxAndroidVersion = "2.0.2"
+    rxBindingVersion = "2.1.1"
+    rxKotlinVersion = "2.2.0"
+    supportVersion = "27.1.1"
+    constraintLayoutVersion = "1.1.2"
+    glideVersion = "4.7.1"
+
+    // compileOnly
+    javaxVersion = "1"
+
+    // testImplementation
+    jUnitVersion = "4.12"
+    mockitoVersion = "2.19.0"
+
+    apiGithubDependencies = [
+            [configuration: "implementation", dependency: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"],
+            [configuration: "implementation", dependency: "com.google.dagger:dagger:${daggerVersion}"],
+            [configuration: "implementation", dependency: "com.squareup.okhttp3:okhttp:${okHttpVersion}"],
+            [configuration: "implementation", dependency: "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"],
+            [configuration: "implementation", dependency: "com.squareup.retrofit2:retrofit:${retrofitVersion}"],
+            [configuration: "implementation", dependency: "com.squareup.retrofit2:converter-gson:${retrofitVersion}"],
+            [configuration: "implementation", dependency: "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"],
+            [configuration: "implementation", dependency: project(":data")],
+
+            [configuration: "compileOnly", dependency: "javax.inject:javax.inject:${javaxVersion}"],
+
+            [configuration: "testImplementation", dependency: "junit:junit:${jUnitVersion}"],
+            [configuration: "testImplementation", dependency: "org.mockito:mockito-core:${mockitoVersion}"],
+            [configuration: "testImplementation", dependency: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"]
+    ]
+
+    dataDependencies = [
+            [configuration: "implementation", dependency: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"],
+            [configuration: "implementation", dependency: "com.google.dagger:dagger:${daggerVersion}"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"],
+            [configuration: "implementation", dependency: project(":domain")],
+
+            [configuration: "compileOnly", dependency: "javax.inject:javax.inject:${javaxVersion}"],
+
+            [configuration: "testImplementation", dependency: "junit:junit:${jUnitVersion}"],
+            [configuration: "testImplementation", dependency: "org.mockito:mockito-core:${mockitoVersion}"],
+            [configuration: "testImplementation", dependency: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"]
+    ]
+
+    domainDependencies = [
+            [configuration: "implementation", dependency: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"],
+            [configuration: "implementation", dependency: "com.google.dagger:dagger:${daggerVersion}"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"],
+
+            [configuration: "compileOnly", dependency: "javax.inject:javax.inject:${javaxVersion}"],
+
+            [configuration: "testImplementation", dependency: "junit:junit:${jUnitVersion}"],
+            [configuration: "testImplementation", dependency: "org.mockito:mockito-core:${mockitoVersion}"],
+            [configuration: "testImplementation", dependency: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"]
+    ]
+
+    presentationDependencies = [
+            [configuration: "implementation", dependency: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"],
+            [configuration: "implementation", dependency: "com.google.dagger:dagger:${daggerVersion}"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"],
+            [configuration: "implementation", dependency: project(":domain")],
+
+            [configuration: "compileOnly", dependency: "javax.inject:javax.inject:${javaxVersion}"],
+
+            [configuration: "testImplementation", dependency: "junit:junit:${jUnitVersion}"],
+            [configuration: "testImplementation", dependency: "org.mockito:mockito-core:${mockitoVersion}"],
+            [configuration: "testImplementation", dependency: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"]
+    ]
+
+    uiAndroidDependencies = [
+            [configuration: "implementation", dependency: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"],
+            [configuration: "implementation", dependency: "com.google.dagger:dagger:${daggerVersion}"],
+            [configuration: "implementation", dependency: "com.google.dagger:dagger-android-support:${daggerVersion}"],
+            [configuration: "implementation", dependency: "com.android.support:appcompat-v7:${supportVersion}"],
+            [configuration: "implementation", dependency: "com.android.support:recyclerview-v7:${supportVersion}"],
+            [configuration: "implementation", dependency: "com.android.support:design:${supportVersion}"],
+            [configuration: "implementation", dependency: "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"],
+            [configuration: "implementation", dependency: "com.jakewharton.rxbinding2:rxbinding-kotlin:${rxBindingVersion}"],
+            [configuration: "implementation", dependency: "com.github.bumptech.glide:glide:${glideVersion}"],
+            [configuration: "implementation", dependency: project(":api-github")],
+            [configuration: "implementation", dependency: project(":data")],
+            [configuration: "implementation", dependency: project(":domain")],
+            [configuration: "implementation", dependency: project(":presentation")],
+
+            [configuration: "compileOnly", dependency: "javax.inject:javax.inject:${javaxVersion}"],
+
+            [configuration: "kapt", dependency: "com.github.bumptech.glide:compiler:${glideVersion}"],
+            [configuration: "kapt", dependency: "com.google.dagger:dagger-compiler:${daggerVersion}"],
+            [configuration: "kapt", dependency: "com.google.dagger:dagger-android-processor:${daggerVersion}"],
+
+            [configuration: "testImplementation", dependency: "junit:junit:${jUnitVersion}"],
+            [configuration: "testImplementation", dependency: "org.mockito:mockito-core:${mockitoVersion}"],
+            [configuration: "testImplementation", dependency: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"]
+    ]
+}

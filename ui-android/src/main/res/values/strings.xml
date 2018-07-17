@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Search Ui Android</string>
+    <string name="title_activity_repository_search">RepositorySearchActivity</string>
+
+    <string name="hint_search">Search</string>
+    <string name="description_repository_avatar">Repository avatar</string>
+    <string name="descripton_search_button">Search button</string>
+    <string name="descripton_star_icon">Star icon</string>
+    <string name="descripton_fork_icon">Fork icon</string>
+    <string name="descripton_last_changed_icon">Last changed icon</string>
+    <string name="descripton_language_icon">Language icon</string>
+    <string name="menu_stars">Stars</string>
+    <string name="menu_forks">Forks</string>
+    <string name="menu_updated">Updates</string>
+    <string name="menu_sort">Sort</string>
+    <string name="title_activity_repository_detail">RepositoryDetailActivity</string>
+    <string name="label_repository">Repository</string>
+    <string name="label_description">Description</string>
+    <string name="label_owner">Owner</string>
+    <string name="label_username">Username</string>
+    <string name="label_user_type">Type</string>
+    <string name="label_user_followers">Followers</string>
+    <string name="label_user_public_repos">Public repos</string>
+    <string name="label_user_public_gists">Public gists</string>
+    <string name="menu_web">Internet</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="label_created_at">Created at</string>
+    <string name="label_updated_at">Updated at</string>
+</resources>
